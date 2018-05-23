@@ -1,0 +1,13 @@
+<div class="card">
+  <div class="card-header">
+    <span [appState]="value.state"> {{ value.state }} </span>
+    <!-- <span>{{ value.state }}</span> -->
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">{{ value.name }}</h5>
+    <p class="card-text"> {{ value.reference }} </p>
+    <button class="btn btn-primary" *ngIf="state.ALIVRER === value.state" (click)="changeState(state.ENCOURS)">
+      {{state.ENCOURS}}
+    </button>
+  </div>
+</div>
