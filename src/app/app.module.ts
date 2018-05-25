@@ -6,8 +6,9 @@ import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core/core.module';
 import { HomeModule } from './home/home.module';
 import { PagenotfoundModule } from './pagenotfound/pagenotfound.module';
-// import { ItemsModule } from './items/items.module';
 import { AppRoutingModule } from './app-routing.module';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { environment } from '../environments/environment';
 import { Router } from '@angular/router';
 
@@ -17,11 +18,12 @@ import { Router } from '@angular/router';
   ],
   imports: [
     BrowserModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
     AppRoutingModule,
     CoreModule,
     HomeModule,
     PagenotfoundModule,
-    // ItemsModule,
     NgbModule.forRoot(),
     SharedModule
   ],

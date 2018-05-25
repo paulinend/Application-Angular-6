@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Item } from '../../../core/item.model';
 import { State } from '../../state.enum';
 
@@ -9,6 +9,8 @@ import { State } from '../../state.enum';
 })
 export class ItemComponent implements OnInit {
   @Input('value') value: Item;
+  @Output('Out') Out: EventEmitter<Item> = new EventEmitter();
+  @Output('OutDelete') OutDelete: EventEmitter<Item> = new EventEmitter();
   state = State;
   constructor() { }
 
@@ -17,6 +19,10 @@ export class ItemComponent implements OnInit {
 
   changeState(state: State): void {
     this.value.state = state;
-    // this.collectionService.update(this.value)
+    this.Out.emit(this.value);
+  }
+
+  deleteItem() {
+    this.OutDelete.emit(this.value);
   }
 }

@@ -1,7 +1,9 @@
 <div class="card">
   <div class="card-header">
     <span [appState]="value.state"> {{ value.state }} </span>
-    <!-- <span>{{ value.state }}</span> -->
+    <button class="btn btn-warning" (click)="deleteItem()">
+        Supprimer
+      </button>
   </div>
   <div class="card-body">
     <h5 class="card-title">{{ value.name }}</h5>
